@@ -2,7 +2,7 @@
   <div>
     <home-header></home-header>
     <home-banner></home-banner>
-    <div class="placeholder-div"></div>
+    <div class="placeholder-div b-1px-b"></div>
   </div>
 </template>
 
