@@ -2,12 +2,16 @@
   <div class="header">
     <div class="iconfont icon-icon_left left"></div>
     <div class="mid"><div class="iconfont icon-icon_search"></div> <div>输入城市/景点/游玩主题</div></div>
-    <div class="right"><div>上海</div><div class="iconfont icon-triangle-down"></div></div>
+    <div @click="handleCityClick" class="right"><div>上海</div><div class="iconfont icon-triangle-down"></div></div>
   </div>
 </template>
 <script>
 export default {
-  
+  methods:{
+    handleCityClick(){
+      this.$router.push('/city');
+    }
+  }
 }
 </script>
 <style lang="stylus" scoped>

@@ -13,7 +13,8 @@ export default {
   components: {
     HomeHeader,
     HomeBanner
-  }
+  },
+  methods: {}
 };
 </script>
 
@@ -22,10 +23,8 @@ export default {
   background $themeColor
   height 100px
   width 80%
-
 .placeholder-div
   height 150px
   background-color yellow
-
 </style>
 
