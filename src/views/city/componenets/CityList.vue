@@ -3,13 +3,14 @@
     <ul>
       <div v-for="(item,key) in cityList" :key="key">
         <div :ref="key" class="letter">{{key}}</div>
-        <div v-for="city in item" :key="city.id" class="city b-1px-b">{{city.name}}</div>
+        <div @click="handleChangeCity(city.name)" v-for="city in item" :key="city.id" class="city b-1px-b">{{city.name}}</div>
       </div>
     </ul>
   </div>
 </template>
 <script>
 import BScroll from "better-scroll";
+import { mapMutations, mapActions } from "vuex";
 export default {
   props: {
     cityList: [Object, Array],
@@ -25,7 +26,13 @@ export default {
     });
   },
   methods:{
-
+    ...mapMutations(['changeCity']),
+    // ...mapActions(['changeCity']),
+    handleChangeCity(cityName){
+      
+      this.changeCity(cityName);
+      this.$router.push('/');
+    }
   },
   watch:{
     letter(newLetter, oldLetter){

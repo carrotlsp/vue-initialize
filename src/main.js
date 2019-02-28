@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import FastClick from 'fastclick'
+import store from './store'
 import "./assets/css/iconfont.css"
 import "./assets/css/1px.css"
 import "./assets/css/reset.css"
@@ -20,6 +21,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
