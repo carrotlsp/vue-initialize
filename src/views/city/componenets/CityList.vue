@@ -2,7 +2,7 @@
   <div ref="wrapper" class="city-list wrapper">
     <ul>
       <div v-for="(item,key) in cityList" :key="key">
-        <div class="letter">{{key}}</div>
+        <div :ref="key" class="letter">{{key}}</div>
         <div v-for="city in item" :key="city.id" class="city b-1px-b">{{city.name}}</div>
       </div>
     </ul>
@@ -12,7 +12,8 @@
 import BScroll from "better-scroll";
 export default {
   props: {
-    cityList: [Object, Array]
+    cityList: [Object, Array],
+    letter:[String]
   },
   data() {
     return {};
@@ -20,10 +21,21 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.wrapper);
-      console.log(this.scroll);
+      // console.log(this.scroll);
     });
   },
-  updated() {}
+  methods:{
+
+  },
+  watch:{
+    letter(newLetter, oldLetter){
+      if (newLetter !== oldLetter) {
+        // console.log(this.$refs[newLetter][0])
+        this.scroll.scrollToElement(this.$refs[newLetter][0]);
+      } 
+    }
+  }
+  
 };
 </script>
 <style lang="stylus" scoped>
@@ -45,4 +57,5 @@ export default {
     padding-left 15px
     background-color white
     line-height 44px
+    padding-right 20px
 </style>

@@ -1,27 +1,29 @@
 <template>
   <div class="city">
     <city-header class="city-header"></city-header>
-    <city-list class="city-list" :cityList="list"></city-list>
-  
+    <city-list :letter="letter" class="city-list" :cityList="list"></city-list>
+    <az-index :cityList="list" @changeLetter="handleChangeLetter"></az-index>
   </div>
 </template>
 <script>
 import CityHeader from "./componenets/CityHeader";
 import CityList from "./componenets/CityList";
+import AzIndex from "./componenets/AzIndex";
 import axios from "axios";
 
 export default {
   data() {
     return {
-      list: []
+      list: [],
+      letter:''
     };
   },
   components: {
     CityHeader,
-    CityList
+    CityList,
+    AzIndex
   },
   mounted() {
-
     axios
       .get("/static/city.json")
       .then(response => {
@@ -32,7 +34,11 @@ export default {
       });
   },
   updated() {
-    console.log("updated");
+  },
+  methods: {
+    handleChangeLetter(key) {
+      this.letter = key
+    }
   }
 };
 </script>
