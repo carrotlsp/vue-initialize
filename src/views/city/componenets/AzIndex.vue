@@ -44,13 +44,21 @@ export default {
       }
     },
     handleTouchMove(event) {
-      let touch = event.touches[0]; //获取第一个触点
-      let index = Math.floor((touch.clientY - this.aOffsetTop) / 20);
-      this.handleClick(this.letterArray[index]);
+      if (this.timer) {
+        // clearTimeout(this.timer);
+        return
+        // console.log("clearTimeout");
+      }
+      this.timer = setTimeout(() => {
+        console.log(this.timer);
 
-      // console.log(touch.clientY)
-      // console.log(this.$refs['wrapper'].offsetTop)
-      console.log("handleTouchMove");
+        let touch = event.touches[0]; //获取第一个触点
+        let index = Math.floor((touch.clientY - this.aOffsetTop) / 20);
+        if (index >= 0 && index < this.letterArray.length) {
+          this.handleClick(this.letterArray[index]);
+        }
+        this.timer = 0
+      }, 40);
     },
     handleTouchEnd(e) {
       console.log(e);
