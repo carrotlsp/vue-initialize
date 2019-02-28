@@ -1,9 +1,9 @@
 <template>
-  <div class="city">
-    <city-header class="city-header"></city-header>
-    <city-list :letter="letter" class="city-list" :cityList="list"></city-list>
-    <az-index :cityList="list" @changeLetter="handleChangeLetter"></az-index>
-  </div>
+    <div class="city">
+      <city-header class="city-header"></city-header>
+      <city-list :letter="letter" class="city-list" :cityList="list"></city-list>
+      <az-index :cityList="list" @changeLetter="handleChangeLetter"></az-index>
+    </div>
 </template>
 <script>
 import CityHeader from "./componenets/CityHeader";
@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       list: [],
-      letter:''
+      letter: ""
     };
   },
   components: {
@@ -33,11 +33,10 @@ export default {
         console.log(error);
       });
   },
-  updated() {
-  },
+  updated() {},
   methods: {
     handleChangeLetter(key) {
-      this.letter = key
+      this.letter = key;
     }
   }
 };

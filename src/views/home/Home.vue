@@ -10,15 +10,33 @@
 import HomeHeader from "./components/HomeHeader";
 import HomeBanner from "./components/HomeBanner";
 import { mapGetters } from "vuex";
+import axios from "axios";
 export default {
   components: {
     HomeHeader,
     HomeBanner
   },
   computed: {
-    ...mapGetters(['doubleCity'])
+    ...mapGetters(["doubleCity"])
   },
-  methods: {}
+  mounted() {
+  },
+  activated(){
+    this.getIndexData();
+  },
+  methods: {
+    // 换城市后首页得重新加载,怎么做呢?keep-alive 已经让这个不会重新执行了.activated就是解决这个问题的.
+    async getIndexData(){
+      axios
+      .get("/static/index.json")
+      .then(response => {
+        console.log('首页数据加载');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
+  }
 };
 </script>
 
