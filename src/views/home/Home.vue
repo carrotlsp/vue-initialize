@@ -27,14 +27,22 @@ export default {
   methods: {
     // 换城市后首页得重新加载,怎么做呢?keep-alive 已经让这个不会重新执行了.activated就是解决这个问题的.
     async getIndexData(){
-      axios
-      .get("/static/index.json")
+      this.$get('/static/index.json',{token:'123',header:'789'})
       .then(response => {
-        console.log('首页数据加载');
-      })
-      .catch(error => {
+        console.log(response);
+      }).catch(error => {
         console.log(error);
       });
+
+      // axios
+      // .get("/static/index.json")
+      // .then(response => {
+      //   console.log('首页数据加载');
+      // })
+      // .catch(error => {
+      //   console.log(error);
+      // });
+
     }
   }
 };
