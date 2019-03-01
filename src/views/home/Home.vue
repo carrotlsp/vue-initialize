@@ -29,7 +29,7 @@ export default {
     async getIndexData(){
       this.$get('/static/index.json',{token:'123',header:'789'})
       .then(response => {
-        console.log(response);
+        console.log("这里的数据每次进来可以对比 city 来决定是否重新加载");
       }).catch(error => {
         console.log(error);
       });

@@ -24,7 +24,8 @@ export default {
   },
   methods: {
     handleBackClick() {
-      this.$router.push("/");
+      // this.$router.push("/");
+      this.$router.go(-1);
     },
     handleScroll() {
       // console.log(window.scrollY);
@@ -43,6 +44,9 @@ export default {
   },
   activated() {
     window.addEventListener("scroll", this.handleScroll);
+  },
+  deactivated(){
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>

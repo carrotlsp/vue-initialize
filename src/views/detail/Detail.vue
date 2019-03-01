@@ -24,12 +24,13 @@ export default {
       tickets:[]
     }
   },
-  mounted(){
+  activated(){
     this.$get('/static/detail.json').then(response=>{
-      console.log(response);
       this.tickets = response;
+      console.log("这里的数据每次进来可以对比 ID 来决定是否重新加载");
     });
-  }
+  },
+  
 }
 </script>
 
