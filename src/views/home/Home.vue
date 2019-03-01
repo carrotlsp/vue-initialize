@@ -2,7 +2,7 @@
   <div>
     <home-header></home-header>
     <home-banner></home-banner>
-    <div v-for="item in 9" :key="item" class="placeholder-div b-1px-b">{{doubleCity}}123</div>
+    <div @click="handleItemClick(item)" v-for="item in 9" :key="item" class="placeholder-div b-1px-b">{{doubleCity}}{{item}}</div>
   </div>
 </template>
 
@@ -43,6 +43,9 @@ export default {
       //   console.log(error);
       // });
 
+    },
+    handleItemClick(index){
+      this.$router.push('/detail/'+index);
     }
   }
 };
