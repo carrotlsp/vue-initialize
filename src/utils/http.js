@@ -2,7 +2,7 @@ import axios from 'axios'
 import qs from 'qs'
 
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://localhost:8081/';
+axios.defaults.baseURL = '/';
 
 // http request 拦截器
 axios.interceptors.request.use(

@@ -5,13 +5,14 @@
   "author": "carrot__lsp <476078307@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --host 0.0.0.0 --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
   "dependencies": {
     "ajv": "^6.9.2",
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "better-scroll": "^1.14.1",
     "fastclick": "^1.0.6",
     "vue": "^2.5.2",

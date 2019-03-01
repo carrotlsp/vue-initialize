@@ -1,9 +1,9 @@
 <template>
   <div
     ref="wrapper"
-    @touchstart="handleTouchStart"
-    @touchmove="handleTouchMove"
-    @touchend="handleTouchEnd"
+    @touchstart.prevent="handleTouchStart"
+    @touchmove.prevent="handleTouchMove"
+    @touchend.prevent="handleTouchEnd"
     class="wrapper"
   >
     <div
